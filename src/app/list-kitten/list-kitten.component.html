@@ -1,0 +1,43 @@
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col py-3">
+            <h1>Liste des chatons</h1>
+            <table class="table table-bordered border-primary">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Race</th>
+                        <th>Date de Naissance</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (item of allKitten; track item) {
+                    <tr>
+                        <td>{{item.name}}</td>
+                        <td>{{item.race}}</td>
+                        <td>{{item.dateOfBirth}}</td>
+                        <td>
+                            <button (click)="addKittenUser(item)">Adopter</button>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+
+
+        </div>
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                <p class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">Liste des
+                    chatons de l'utilisateur</p>
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start">
+                    <li class="nav-item">
+                        <app-user-kitten [userKitten]="userKitten"></app-user-kitten>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>

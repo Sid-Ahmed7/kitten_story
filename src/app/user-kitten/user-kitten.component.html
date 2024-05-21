@@ -1,0 +1,8 @@
+@for (item of userKitten; track item) {
+    <img [src]="item.pathImg" alt="kitten.name"(mouseover)="showData=true" (mouseout)="showData=false"  >
+    @if (showData) {
+       <p>Nom: {{item.name}}</p> 
+       <p>Race: {{item.race}}</p>
+       <p>Date de naissance: {{item.dateOfBirth}}</p> 
+    }
+}

@@ -1,0 +1,53 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col py-3">
+            <form #myForm="ngForm" (ngSubmit)="myForm.valid  && createKitten() ">
+                
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nom du chaton</label>
+                    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="kitten.name"
+                        #name="ngModel" required>
+                    @if (name.errors ) { @if(name.errors['required']) {
+                    <p [ngStyle]="{color: 'red'}">Le nom du chaton est requis</p>
+                    }}
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="race" class="form-label">Race du chaton</label>
+                    <input type="text" class="form-control" id="race" name="race" [(ngModel)]="kitten.race"
+                        #race="ngModel" required>
+                    @if (race.errors) { @if (race.errors['required']) {
+                    <p [ngStyle]="{color: 'red'}">La race du chaton est requis</p>
+                    }}
+                </div>
+
+                <div class="mb-3">
+                    <label for="dateOfBirth" class="form-label">Date de naissance</label>
+                    <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth"
+                        [(ngModel)]="kitten.dateOfBirth" #dateOfBirth="ngModel" required>
+                    @if (dateOfBirth.errors) { @if (dateOfBirth.errors['required']) {
+                    <p [ngStyle]="{color: 'red'}">La date de naissance du chaton est requis</p>
+                    }}
+                </div>
+
+                <div class="mb-3">
+                    <label for="pathImg" class="form-label">Lien vers l'image</label>
+                    <input type="text" class="form-control" id="pathImg" name="pathImg" [(ngModel)]="kitten.pathImg"
+                        #pathImg="ngModel" required>
+                    @if (pathImg.errors) { @if (pathImg.errors['required']) {
+                    <p [ngStyle]="{color: 'red'}">Le lien de l'image du chaton est requis</p>
+                    }}
+                </div>
+
+                @if (myForm.valid) {
+                <button class="btn btn-success btn-lg btn-block" type="submit" routerLink="/list-kitten">Ajouter un
+                    chaton</button>
+                } @else {
+                <button class="btn btn-secondary btn-lg btn-block" type="submit">Ajouter un chaton</button>
+                }
+
+            </form>
+        </div>
+    </div>
+</div>
